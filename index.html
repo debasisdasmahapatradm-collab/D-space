@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D-Space</title>
+    <title>DesignNest</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
@@ -19,7 +19,7 @@
             padding-bottom: 5rem;
         }
         .card {
-            background-color: #fefcbf; /* A light, warm tone */
+            background-color: #ebe6a1; /* A light, warm tone */
             border-radius: 1rem;
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -80,30 +80,40 @@
             animation: gradientShift 10s ease-in-out infinite;
         }
        */
+/* Form styling */
+#contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#contactForm label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #2c2b2a;
+ 
+}
     </style>
 </head>
 
 <body class="bg-lime-100 text-slate-800">
 
     <!-- Navigation Bar -->
-    <header class="bg-white shadow-md fixed w-full z-50 top-0 ">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- D-Space Logo -->
-            <a href="#" class="flex items-center space-x-2 text-slate-900">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="11" stroke="oklch(84.1% 0.238 128.85)" stroke-width="2" />
-                    <path d="M12 7.5C12 7.5 9.5 9 8 12C9.5 15 12 16.5 12 16.5V7.5Z" fill="oklch(63.7% 0.237 25.331)" />
-                </svg>
-                <span class="text-3xl font-bold font-['Playfair_Display']"><span class="text-red-500">D</span><span class="text-lime-500">-Space</span></span>
-            </a>
+    <header class="bg-lime-50 shadow-md fixed w-full z-50 top-0 ">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex flex-col items-start">
+            <span class="text-3xl font-bold font-['Playfair_Display']"><span class="text-red-500">Design</span><span class="text-lime-600">Nest</span></span>
+            <span class="text-sm font-medium text-slate-600 "> Spaces Where You Love to Live</span> 
+            </div>
+
+        </a>
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="#" class="text-red-500 hover:text-lime-500 rounded-full transition duration-300 font-medium">Home</a>
-                <a href="#about" class="text-slate-600 hover:text-lime-500 transition duration-300 font-medium">About</a>
-                <a href="#services" class="text-slate-600 hover:text-lime-500 transition duration-300 font-medium">Services</a>
-                <a href="#projects" class="text-slate-600 hover:text-lime-500 transition duration-300 font-medium">Projects</a>
-                <a href="#contact" class="text-slate-600 hover:text-lime-500 transition duration-300 font-medium">Contact</a>
-                <a href="https://wa.me/9064734071" class="bg-lime-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-red-500 transition duration-300" target="_blank">Book a Consultation</a>
+                <a href="#" class="text-red-500 hover:text-lime-500 rounded-full transition duration-300 font-bold">Home</a>
+                <a href="#about" class="text-#6F7F6A hover:text-lime-500 transition duration-300 font-bold">About</a>
+                <a href="#services" class="text-#6F7F6A-600 hover:text-lime-500 transition duration-300 font-bold">Services</a>
+                <a href="#projects" class="text-#6F7F6A-600 hover:text-lime-500 transition duration-300 font-bold">Projects</a>
+                <a href="#contact" class="text-#6F7F6A-600 hover:text-lime-500 transition duration-300 font-bold">Contact</a>
+                <a href="#contact" class="bg-lime-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-red-500 transition duration-300" target="blank">Book a Consultation</a>
             </div>
             <!-- Mobile Menu Toggle -->
             <div class="md:hidden flex items-center">
@@ -127,19 +137,28 @@
 
     <main class="mt-20">
         <!-- Hero Section -->
-        <section class="relative h-screen flex items-center justify-center text-white hero-bg-image">           
-            <div class="absolute inset-0 bg-slate-900 opacity-60"></div>
-            <div class="relative text-center max-w-4xl mx-auto px-6">
-                <h1 class="text-6xl md:text-7xl font-extrabold leading-tight tracking-tight">Transforming Your Space, Crafting Your Story</h1>
-                <p class="mt-4 text-xl md:text-2xl font-light max-w-2xl mx-auto">We bring your unique vision to life with personalized and luxurious interior design solutions.</p>
-                <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <!-- Updated with Tailwind utility classes -->
-                    <a href="#projects" class="bg-red-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-red-600 transition duration-300">Explore Our Work</a>
-                    <a href="https://wa.me/9064734071" class="bg-lime-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-lime-600 transition duration-300">Book a Free Consultation</a>
-                </div>
-            </div>
-        </section>
+       <section class="relative h-screen flex items-center justify-center text-white hero-bg-image">           
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-slate-900 opacity-60"></div>
 
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+    <h1 class="text-6xl md:text-7xl font-extrabold leading-tight tracking-tight">
+      Transforming Your Space, Crafting Your Story
+    </h1>
+    <p class="mt-4 text-xl md:text-2xl font-light max-w-2xl mx-auto">
+      We bring your unique vision to life with personalized and luxurious interior design solutions.
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a href="#projects" class="bg-red-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-red-600 transition duration-300">
+        Explore Our Work
+      </a>
+      <a href="#contact" class="bg-lime-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-lime-600 transition duration-300">
+        Book a Free Consultation
+      </a>
+    </div>
+  </div>
+</section>
         <!-- About Us Section -->
         <section id="about" class="section container mx-auto px-6">
             <h2 class="text-5xl font-bold text-center text-slate-900 mb-12">About Our Studio</h2>
@@ -149,7 +168,7 @@
                     <p class="leading-relaxed">Our team of experienced designers meticulously manages every aspect of your project, from the initial concept to the final installation. We are committed to a collaborative process, ensuring that your ideas are at the heart of every decision. We specialize in blending timeless elegance with modern sensibilities, creating spaces that you will love for years to come.</p>
                 </div>
                 <div class="flex justify-center">
-                    <img class="rounded-2xl shadow-xl max-w-full h-auto transition duration-300 transform group-hover:scale-110" src="living 1.jpg" alt="A stylized abstract representation of an interior design studio.">
+                    <img class="rounded-2xl shadow-xl max-w-full h-auto transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\living 1.jpg" alt="A stylized abstract representation of an interior design studio.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
             </div>
@@ -160,20 +179,20 @@
             <h2 class="text-5xl font-bold text-center text-slate-900 mb-12">Our Specialized Services</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">Full-Scale Design</h3>
-                    <p class="text-slate-600">Complete interior and architectural design for new constructions or extensive renovations.</p>
+                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">🍽️ Modular Kitchen</h3>
+                    <p class="text-slate-600">Smartly designed kitchens that blend functionality with style, offering customized layouts, durable finishes, and modern storage solutions to make cooking a delight.</p>
                 </div>
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">Decor & Styling</h3>
-                    <p class="text-slate-600">Elevate your existing space with new furniture, lighting, and art curated to your taste.</p>
+                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">🧥 Wardrobe</h3>
+                    <p class="text-slate-600">Elegant and space‑efficient wardrobes tailored to your lifestyle, with sleek designs, premium materials, and smart organization for a clutter‑free home.</p>
                 </div>
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">Bespoke Millwork</h3>
-                    <p class="text-slate-600">Custom cabinetry and built-ins to create beautiful, functional, and integrated solutions.</p>
+                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">📺 TV Unit</h3>
+                    <p class="text-slate-600">Contemporary TV units that enhance your living room, combining aesthetics with practical storage to create the perfect entertainment hub..</p>
                 </div>
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">Consultation</h3>
-                    <p class="text-slate-600">Professional guidance to help you make key decisions for your home improvement projects.</p>
+                    <h3 class="text-2xl font-semibold mb-2 text-slate-900">🏠 Full Renovation</h3>
+                    <p class="text-slate-600">Comprehensive renovation services covering interiors and civil work, transforming your entire space with expert planning, quality execution, and luxurious finishes.</p>
                 </div>
             </div>
         </section>
@@ -193,56 +212,56 @@
             <div id="project-gallery" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Living Room -->
                 <div class="project-item group relative rounded-3xl overflow-hidden shadow-xl cursor-pointer" data-category="living-room">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="living 2.jpg" alt="A modern living room design.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\living 2.jpg" alt="A modern living room design.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Living Room</span>
                     </div>
                 </div>
                 <!-- Kitchen -->
                 <div class="project-item group relative rounded-3xl overflow-hidden shadow-xl cursor-pointer" data-category="kitchen">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="kitchen 2.jpg" alt="A contemporary kitchen design.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\kitchen 2.jpg" alt="A contemporary kitchen design.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Kitchen</span>
                     </div>
                 </div>
                 <!-- Bedroom -->
                 <div class="project-item group relative rounded-3xl overflow-hidden shadow-xl cursor-pointer" data-category="bedroom">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="bed 2.jpg" alt="A cozy bedroom design.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\bed 2.jpg" alt="A cozy bedroom design.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Bedroom</span>
                     </div>
                 </div>
                 <!-- Wardrobe -->
                 <div class="project-item group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-category="wardrobe">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="wardrobe 2.jpg" alt="A stylish wardrobe solution.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\wardrobe 2.jpg" alt="A stylish wardrobe solution.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Wardrobe</span>
                     </div>
                 </div>
                 <!-- Kitchen -->
                 <div class="project-item group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-category="kitchen">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="kitchen 1.jpg" alt="A stylish kitchen design with island.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\kitchen 1.jpg" alt="A stylish kitchen design with island.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Kitchen</span>
                     </div>
                 </div>
                 <!-- Living Room -->
                 <div class="project-item group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-category="living-room">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="living 1.jpg" alt="A modern living room with bright colors.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\living 1.jpg" alt="A modern living room with bright colors.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Living Room</span>
                     </div>
                 </div>
                 <!-- Bedroom -->
                 <div class="project-item group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-category="bedroom">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="Img\bed1.jpg" alt="A peaceful bedroom with warm tones.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\bed1.jpg" alt="A peaceful bedroom with warm tones.">
                     <div class="absolute inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Bedroom</span>
                     </div>
                 </div>
                 <!-- Wardrobe -->
                 <div class="project-item group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-category="wardrobe">
-                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="wardrobe1.jpg" alt="A modern and organized wardrobe.">
+                    <img class="w-full h-80 object-cover transition duration-300 transform group-hover:scale-110" src="D:\PROGRAMMING\Website\D-Space\Img\wardrobe1.jpg" alt="A modern and organized wardrobe.">
                     <div class="absolute inset-0 bg-lime-100 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="text-white text-2xl font-semibold">Wardrobe</span>
                     </div>
@@ -258,19 +277,46 @@
                     <h3 class="text-2xl font-semibold mb-4 text-slate-900">Get in Touch</h3>
                     <p class="text-slate-600 mb-6">Fill out the form below to begin your design journey. We'll get back to you within 24 hours for your site visit.</p>
                     <form id="contactForm">
-                        <div class="mb-4">
+                        <div class="mb-2">
                             <label for="name" class="block text-slate-700 font-medium mb-2">Full Name</label>
                             <input type="text" id="name" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Your Name" required>
                         </div>
-                        <div class="mb-4">
+
+                        <div class="mb-2">
+                            <label for="phone" class="block text-slate-700 font-medium mb-2">Phone Number</label>
+                            <input type="text" id="phone" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Your Phone Number" required>
+                        </div>
+
+                        <div class="mb-2">
                             <label for="email" class="block text-slate-700 font-medium mb-2">Email Address</label>
                             <input type="email" id="email" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="your.email@example.com" required>
                         </div>
-                        <div class="mb-4">
-                            <label for="message" class="block text-slate-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tell us about your project..." required></textarea>
+
+                        <div class="mb-2">
+                            <label for="datetime" class="block text-slate-700 font-medium mb-2">Preferred Date & Time:</label>
+                            <input type="datetime-local" id="datetime" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
                         </div>
-                        <button type="submit" class="w-full bg-lime-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-red-500 transition duration-300">Send Message</button>
+
+                        <!-- New Dropdown Field -->
+                        <div class="mb-2">
+                            <label for="projectType" class="block text-slate-700 font-medium mb-2">Type Of Project</label>
+                            <select id="projectType" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                                <option value="">Select your project type</option>
+                                <option value="Modular kitchen">Modular kitchen</option>
+                                <option value="Wardrobe">Wardrobe</option>
+                                <option value="Tv Unit">Tv Unit</option>
+                                <option value="Full Renovation">Full Renovation</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="message" class="block text-slate-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tell us about your project..." ></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-lime-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-red-500 transition duration-300">
+                            Send Message
+                        </button>
                     </form>
                 </div>
                 <div class="text-center md:text-left">
@@ -306,7 +352,7 @@
     <!-- Footer -->
     <footer class="bg-lime-500 hover:bg-red-500 text-white py-8 mt-12">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 D-Space. All Rights Reserved.</p>
+            <p>&copy; 2026 DesignNest. All Rights Reserved.</p>
             <div class="flex justify-center space-x-4 mt-4 text-sm">
                 <a href="#" class="hover:text-lime-500">Privacy Policy</a>
                 <a href="#" class="hover:text-lime-500">Terms of Service</a>
@@ -316,23 +362,55 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-            if (!name || !email || !message) {
-                // In a real application, you would show a user-friendly modal here.
-                console.error("Please fill out all fields.");
-                return;
-            }
-            // --- Send to WhatsApp ---
-            const whatsappNumber = "9064734071"; // Replace with your WhatsApp number
-            const whatsappMessage = `Hello, I would like to get in touch!\n\nName: ${name}\nEmail: ${email}\n\nMessage: ${message}`;
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappURL, '_blank');
-        });
+    const form = e.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const datetime = form.datetime.value;
+    const projectType =form.projectType.value;
+    const message = form.message.value;
+
+    // Validate form fields
+    if (!name || !phone || !email || !datetime || !projectType) {
+        alert("All fields are required.");
+        return;
+    }
+
+    // Send form data to WhatsApp
+    const whatsappMessage = `
+        New Consultation Request:
+        Name: ${name}
+        Phone: ${phone}
+        Email: ${email}
+        Preferred Date & Time: ${datetime}
+        Project Type:${projectType}
+        Message: ${message}
+    `;
+    const whatsappNumber = "919064734071"; // full international format
+    const whatsappAPIUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+
+    window.open(whatsappAPIUrl, "_blank");
+
+    // Save form data to Google Sheets via Apps Script Web App
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxXizeSY2ayp83qe7kYDEXbeil4Bylf3ddY4nnhWgwnGVwTg5UrUwQnE1ncaHEm25Pu/exec"; // replace with deployed Apps Script URL
+    const data = { name, phone, email, datetime,projectType,message };
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log("Data saved to Google Sheets:", result);
+        document.getElementById("formFeedback").style.display = "block";
+    })
+    .catch(error => {
+        console.error("🚫Your data not sent please try again", error);
+    });
+});
 
         // --- Project Filter Logic ---
         document.querySelectorAll('.filter-btn').forEach(button => {
@@ -357,5 +435,3 @@
     </script>
 </body>
 </html>
-
-
