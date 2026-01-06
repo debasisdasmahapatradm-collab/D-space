@@ -13,31 +13,66 @@
         }
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
+            
         }
+        .text-shadow {
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+                }
         .section {
             padding-top: 5rem;
-            padding-bottom: 5rem;
+            padding-bottom: 3rem;
         }
-        .card {
+       .card {
+            position: relative;
             background-color: #ebe6a1; /* A light, warm tone */
             border-radius: 1rem;
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            z-index: 0;
+            overflow: hidden;
         }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #9bec59, #9cf573, #faa99a, #6ff105);
+            background-size: 400% 400%;
+            border-radius: 1rem;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: gradientBorder 6s ease infinite;
+        }
+
         .card:hover {
             transform: translateY(-5px);
         }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
        
         .filter-btn.active {
-            background-color: #dc2626; /* A slightly darker red */
+            background-color: #7edc26; /* A slightly darker red */
         }
         .project-item img {
             width: 100%;
             height: 100%;
         }
         .hero-bg-image {
-            background-image: url("Img/bg.png");
+            background-image: url("bg.png");
             background-size: cover;
             background-position: center;
         }
@@ -99,12 +134,72 @@
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+/* Before/After slider */
+.slider-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+.before-after {
+  position: relative;
+  max-width: 400px;
+  aspect-ratio: 1 / 1; ;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,.4);
+}
+
+.before-after img {
+  display: block;
+  width: 100%;
+}
+
+.after-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 100%;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path .2s;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 2px; background: #f9faf8; cursor: ew-resize;
+}
+.slider-handle:before {
+  content:'';
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #8cf305;; /* Change this to any color */
+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+}
+.after-img,
+.slider-handle {
+  transition: clip-path 0.3s ease, left 0.3s ease;
+}
+
+.clip-star {
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 
+    68% 57%, 79% 91%, 50% 70%, 
+    21% 91%, 32% 57%, 2% 35%, 
+    39% 35%
+  );
+}
     </style>
 </head>
 
 <body class="bg-lime-100 text-slate-800">
     <!-- Navigation Bar -->
-    <header class="bg-lime-50 shadow-md fixed w-full z-50 top-0 ">
+    <header class="bg-slate-50 shadow-md fixed w-full z-50 top-0 ">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex flex-col items-start">
             <span class="text-3xl font-bold font-['Playfair_Display']"><span class="text-red-500">Design</span><span class="text-lime-600">Nest</span></span>
@@ -232,7 +327,7 @@
 </section>
         <!-- About Us Section -->
         <section id="about" class="section container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center text-slate-900 mb-12">About Our Studio</h2>
+            <h2 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow">About Our Studio</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="text-lg">
                     <p class="mb-6 leading-relaxed">Our studio was founded on the belief that a well-designed space can profoundly impact your well-being. We create interiors that are not just beautiful, but are also deeply personal, functional, and reflective of your lifestyle.</p>
@@ -246,7 +341,7 @@
         </section>
             <!-- Services Section -->
         <section id="services" class="section bg-slate-50 container mx-auto px-6 rounded-3xl shadow-xl">
-            <h2 class="text-5xl font-bold text-center text-slate-900 mb-12">Our Core Services</h2>
+            <h2 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow">Our Core Services</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div class="card">
                     <h3 class="text-2xl font-semibold mb-2 text-slate-900">🍽️ Modular Kitchen</h3>
@@ -273,10 +368,11 @@
         </section>
         <!-- Products Detail Section -->
         <section id="products" class="section container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center text-slate-900 mb-16">Detailed Product Range</h2>
-
+            <h2 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow">
+                Product Details
+                </h2>
             <div id="modular-kitchen" class="mb-16">
-                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-lime-500 pb-3 mb-8">🍽️ Modular Kitchen Solutions</h3>
+                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-slate-900 pb-3 mb-8">🍽️ Modular Kitchen Solutions</h3>
                 <p class="text-base mb-8 font-bold text-slate-500">Our modular kitchens are designed for the modern Indian home, focusing on efficient space utilization, durability, and a flawless aesthetic. Choose from a variety of finishes to match your style. </p>
 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -296,7 +392,7 @@
             </div>
 
             <div id="wardrobes" class="mb-16">
-                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-lime-500 pb-3 mb-8">🧥 Custom Wardrobes</h3>
+                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-slate-900 pb-3 mb-8">🧥 Custom Wardrobes</h3>
                 <p class="text-base mb-8 font-bold text-slate-500 ">Maximize your bedroom storage with our bespoke wardrobe solutions. We offer options to suit every budget and design preference, ensuring your space remains organized and stylish. </p>
 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -316,14 +412,14 @@
             </div>
 
             <div id="tv-unit" class="mb-16">
-                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-lime-500 pb-3 mb-8">📺 Designer TV Units</h3>
+                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-slate-900 pb-3 mb-8">📺 Designer TV Units</h3>
                 <div class="card bg-white border border-lime-200">
                      <p class="text-lg text-slate-700 font-bold">Our custom TV units are designed to be the focal point of your living area. We seamlessly integrate wiring management, open shelving, and closed storage with aesthetic wall paneling, using premium materials like veneer, laminate, and back-painted glass to create a sophisticated entertainment experience. </p>
                 </div>
             </div>
 
             <div id="full-renovation" class="mb-10">
-                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-lime-500 pb-3 mb-8">🏠 Comprehensive Renovation Services</h3>
+                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-slate-900 pb-3 mb-8">🏠 Comprehensive Renovation Services</h3>
                 <p class="text-base mb-8 font-bold text-slate-500">Our full renovation services handle all aspects of your home's transformation, from structural changes to fine finishing, ensuring a single point of contact for a hassle-free experience. </p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -333,7 +429,7 @@
                     </div>
                     <div id="painting" class="card bg-white border border-lime-200">
                         <h4 class="text-xl font-semibold mb-2 text-red-500">Painting</h4>
-                        <p class="text-slate-700">Professional interior and exterior painting services using high-quality materials and finishes like matte, lustre, and texture paints.</p>
+                        <p class="text-slate-700">Professional interior painting services using high-quality materials and finishes like matte, lustre, and texture paints.</p>
                     </div>
                     <div id="false-ceiling" class="card bg-white border border-lime-200">
                         <h4 class="text-xl font-semibold mb-2 text-red-500">False Ceiling</h4>
@@ -349,8 +445,9 @@
                     </div>
                 </div>
             </div>
+            <!--Accessories & Hardware Section-->
              <div id="Accessories" class="mb-0">
-                <h3 class="text-4xl font-bold text-slate-900 border-b-2 border-lime-500 pb-3 mb-8"> 🛠️Accessories & HardWare </h3>
+                <h3 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow"> 🛠️Accessories & HardWare </h3>
                 <p class="text-base mb-8 font-bold text-slate-500">Our projects are elevated by the thoughtful selection of accessories and hardware that combine durability, functionality, and style. Every detail matters, and we ensure that the finishing touches not only enhance usability but also complement the overall design aesthetic. </p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -386,17 +483,34 @@
 
                         </p>
         </section>
+        <!--Warranty Section -->
+        <section id="warranty" class="relative mb-6 ">
+            <!-- Warranty Content -->
+            <div class="max-w-2xl mx-auto text-center bg-white px-8 py-12 rounded-3xl shadow-xl">
+                <h3 class=" card text-4xl font-bold text-red-500 mb-6">WARRANTY ASSURANCE</h3>
+                <p class="text-lg text-slate-600 font-medium mb-4">
+                We stand by the quality of our modular products.
+                </p>
+                <p class="text-xl font-semibold text-lime-600">
+                5-Year Warranty on all modular products
+                </p>
+                <p class="text-base text-slate-500 mt-4">
+                Our warranty ensures durability, functionality, and peace of mind. Every product is built to last, 
+                and we guarantee support for five years to keep your spaces stylish and reliable.
+                </p>
+            </div>
+            </section>
 
         <!-- Our Projects Section -->
-        <section id="projects" class="section container mx-auto px-6 mt-2">
-            <h2 class="text-5xl font-bold text-center text-slate-900 mb-12">Our Projects</h2>
+        <section id="projects" class="section container mx-auto px-6 -mt-8">
+            <h2 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow">Our Projects</h2>
             <!-- Project Filter Buttons -->
             <div class="flex flex-wrap justify-center space-x-4 mb-12">
-                <button data-filter="all" class="filter-btn active bg-lime-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-red-500 transition duration-300">All</button>
-                <button data-filter="kitchen" class="filter-btn bg-lime-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-red-500 transition duration-300">Kitchen</button>
-                <button data-filter="wardrobe" class="filter-btn bg-lime-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-red-500 transition duration-300">Wardrobe</button>
-                <button data-filter="living-room" class="filter-btn bg-lime-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-red-500 transition duration-300">Living Room</button>
-                <button data-filter="bedroom" class="filter-btn bg-lime-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-red-500 transition duration-300">Bedroom</button>
+                <button data-filter="all" class="filter-btn active bg-red-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-lime-500 transition duration-300">All</button>
+                <button data-filter="kitchen" class="filter-btn bg-red-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-lime-500 transition duration-300">Kitchen</button>
+                <button data-filter="wardrobe" class="filter-btn bg-red-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-lime-500 transition duration-300">Wardrobe</button>
+                <button data-filter="living-room" class="filter-btn bg-red-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-lime-500 transition duration-300">Living Room</button>
+                <button data-filter="bedroom" class="filter-btn bg-red-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-lime-500 transition duration-300">Bedroom</button>
             </div>
             <!-- Project Gallery -->
             <div id="project-gallery" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -458,9 +572,43 @@
                 </div>
             </div>
         </section>
+        <!--After & Before Section-->
+            <section id="before-after-gallery" class="section container mx-auto px-6 -mt-16">
+                <h2 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow">Before & After Gallery</h2>
+                
+                <div class="slider-grid">
+                    <!-- Slider 1 -->
+                    <div class="before-after">
+                    <img src="kitchen 2.jpg" class="before-img" alt="Before">
+                    <img src="kitchen 1.jpg" class="after-img" alt="After">
+                    <div class="slider-handle"></div>
+                    </div>
+
+                    <!-- Slider 2 -->
+                    <div class="before-after">
+                    <img src="living 2.jpg" class="before-img" alt="Before">
+                    <img src="living 1.jpg" class="after-img" alt="After">
+                    <div class="slider-handle"></div>
+                    </div>
+
+                    <!-- Slider 3 -->
+                    <div class="before-after">
+                    <img src="bed 2.jpg" class="before-img" alt="Before">
+                    <img src="bed1.jpg" class="after-img" alt="After">
+                    <div class="slider-handle"></div>
+                    </div>
+
+                    <!-- Slider 4 -->
+                    <div class="before-after">
+                    <img src="wardrobe 2.jpg" class="before-img" alt="Before">
+                    <img src="wardrobe1.jpg" class="after-img" alt="After">
+                    <div class="slider-handle"></div>
+                    </div>
+                </div>
+            </section>
         <!-- Contact Section -->
-        <section id="contact" class="section container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center text-slate-900 mb-12">Let's Create Your Dream Space</h2>
+        <section id="contact" class="section container mx-auto px-6 -mt-8">
+            <h2 class="max-w-fit mx-auto text-5xl font-bold text-center text-white mb-16 bg-lime-500 px-6 py-4 rounded-3xl shadow-lg text-shadow">Let's Create Your Dream Space</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="card bg-white">
                     <h3 class="text-2xl font-semibold mb-4 text-slate-900">Get in Touch</h3>
@@ -677,6 +825,40 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
             });
         });
     });
+    // Before/After slider
+document.querySelectorAll('.before-after').forEach(container => {
+  const afterImg = container.querySelector('.after-img');
+  const handle = container.querySelector('.slider-handle');
+  let dragging = false;
+
+  const move = (x, smooth = false) => {
+    const rect = container.getBoundingClientRect();
+    let pos = Math.max(rect.left, Math.min(x, rect.right));
+    let percent = ((pos - rect.left) / rect.width) * 100;
+
+    if (smooth) {
+      // Smooth transition using CSS variables
+      afterImg.style.transition = 'clip-path 0.3s ease';
+      handle.style.transition = 'left 0.3s ease';
+    } else {
+      afterImg.style.transition = 'none';
+      handle.style.transition = 'none';
+    }
+
+    afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    handle.style.left = `${percent}%`;
+  };
+
+  // Dragging
+  handle.addEventListener('mousedown', e => { dragging = true; move(e.clientX); });
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('mousemove', e => { if (dragging) move(e.clientX); });
+
+  // Hover effect with smooth animation
+  container.addEventListener('mousemove', e => {
+    if (dragging) move(e.clientX, true);
+  });
+});
     </script>
 </body>
 </html>
